@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>ISEN QR — Cyber Defense Ecosystem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="brand-icon"><span class="material-symbols-outlined">shield</span></div>
+      <div><div class="brand-title">ISEN QR</div><div class="brand-status"><span class="pulse"></span> SISTEM AKTIF</div></div>
+    </div>
+    <nav class="sidebar__nav">
+      <a class="nav-link" data-nav="dashboard"><span class="material-symbols-outlined">grid_view</span><span>Dashboard</span></a>
+      <a class="nav-link" data-nav="cek-qris"><span class="material-symbols-outlined">qr_code_scanner</span><span>Cek QRIS</span></a>
+      <a class="nav-link" data-nav="safe-qris"><span class="material-symbols-outlined">shield_with_heart</span><span>Safe QRIS</span></a>
+      <a class="nav-link" data-nav="isen-map"><span class="material-symbols-outlined">radar</span><span>ISEN Map</span></a>
+    </nav>
+    <div class="sidebar__footer">
+      <div class="tip-box"><div class="tip-title"><span class="material-symbols-outlined">security</span> Protokol</div><p>Selalu cek nama merchant sebelum konfirmasi PIN.</p></div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+    <header class="topbar">
+      <div class="topbar__left">
+        <div class="brand-icon mobile-only"><span class="material-symbols-outlined">shield</span></div>
+        <div><h1 id="page-title">Dashboard</h1><p id="page-subtitle">Pantau perlindungan QRIS real-time</p></div>
+      </div>
+      <div class="topbar__right">
+        <button class="icon-btn"><span class="material-symbols-outlined">notifications</span><span class="dot-badge"></span></button>
+        <div class="avatar"><span class="material-symbols-outlined">person</span></div>
+      </div>
+    </header>
+
+    <main class="content">
+      <!-- SCREEN: DASHBOARD -->
+      <section class="screen" data-screen="dashboard">
+        <div class="pill-row">
+          <div class="pill"><div class="pill-icon blue"><span class="material-symbols-outlined">qr_code_scanner</span></div><div><span class="pill-label">CEK</span><span class="pill-value">Siap Pindai</span></div></div>
+          <div class="pill"><div class="pill-icon"><span class="material-symbols-outlined">flag</span></div><div><span class="pill-label">LAPOR</span><span class="pill-value">0 Menunggu</span></div></div>
+          <div class="pill"><div class="pill-icon green"><span class="material-symbols-outlined">satellite_alt</span></div><div><span class="pill-label">PANTAU</span><span class="pill-value success">Radar Aktif</span></div></div>
+        </div>
+        <div class="section-head"><h2><span class="material-symbols-outlined">bolt</span> Aksi Cepat</h2><span class="tag-mono">TRIAGE CORE</span></div>
+        <div class="grid-3">
+          <div class="card card-primary">
+            <div class="card-row">
+              <div class="card-icon primary"><span class="material-symbols-outlined">qr_code_2</span></div>
+              <div class="card-body"><div class="flex-wrap"><strong>Pindai & Cek QRIS</strong> <span class="badge badge-sky">PREVENT</span></div><p>Analisis payload QR, hash rekening & reputasi merchant.</p><span class="history"><span class="material-symbols-outlined">history</span> Kopi Borneo Aman · 3m lalu</span></div>
+              <button class="cta-circle" onclick="showScreen('cek-qris')"><span class="material-symbols-outlined">center_focus_strong</span></button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-head"><div class="card-icon"><span class="material-symbols-outlined">shield_with_heart</span></div><span class="badge badge-red"><span class="dot-red"></span> 42 Laporan</span></div>
+            <h3>Lapor Insiden QRIS</h3><p>Eskalasi stiker palsu, typo nama, atau transfer manipulatif.</p>
+            <div class="card-foot"><span class="hint">Buat Tiket Investigasi</span><button class="link" onclick="showScreen('safe-qris')">Laporkan <span class="material-symbols-outlined">chevron_right</span></button></div>
+          </div>
+          <div class="card">
+            <div class="card-head"><div class="card-icon blue"><span class="material-symbols-outlined">map</span></div><span class="badge badge-amber"><span class="material-symbols-outlined">warning</span> 3 Titik</span></div>
+            <h3>Pantau Peta Risiko</h3><p>Hotspot radar Kalimantan Tengah real-time.</p>
+            <div class="mini-map"><div class="radar-ring"></div><span class="mini-tag top-left"><span class="dot-red"></span> Toko ABC</span><span class="mini-tag bot-right"><span class="dot-red"></span> Pujasera</span><button class="mini-link" onclick="showScreen('isen-map')">Buka Peta →</button></div>
+          </div>
+        </div>
+        <div class="grid-3 mt">
+          <div class="metric"><span class="metric-num blue">2.480</span><span class="metric-lbl">QRIS Terverifikasi</span><span class="badge badge-green">99.2% Valid</span></div>
+          <div class="metric"><span class="metric-num">42</span><span class="metric-lbl">Laporan Diproses</span><span class="badge badge-slate">SLA &lt;15 mnt</span></div>
+          <div class="metric"><span class="metric-num green">99.8%</span><span class="metric-lbl">Deteksi Penipuan</span><span class="badge badge-green">AI Neural Guard</span></div>
+        </div>
+        <div class="section-head mt"><h2><span class="live-dot"></span> Aktivitas Terkini</h2><button class="link">Semua Log <span class="material-symbols-outlined">north_east</span></button></div>
+        <div class="feed-grid">
+          <div class="feed-item border-red"><div class="feed-icon red"><span class="material-symbols-outlined">fmd_bad</span></div><div><div class="flex-wrap"><strong>QR Tempelan Terdeteksi</strong> <span class="badge badge-red-solid">KRITIS</span></div><p>"Warung Berkah Kahayan" ditimpa rekening anomali Bank X.</p><div class="meta">Jl. RTA Milono · 4 mnt lalu</div></div></div>
+          <div class="feed-item border-green"><div class="feed-icon green"><span class="material-symbols-outlined">verified</span></div><div><div class="flex-wrap"><strong>Verifikasi Merchant</strong> <span class="badge badge-green-solid">VALID</span></div><p>Koperasi Mahasiswa UPR lolos signature digital 2-way.</p><div class="meta">ID1020293881 · 12 mnt lalu</div></div></div>
+          <div class="feed-item border-blue span-2"><div class="feed-icon blue"><span class="material-symbols-outlined">task_alt</span></div><div><div class="flex-wrap"><strong>Tiket Investigasi Selesai</strong> <span class="badge badge-sky">RESOLVED</span></div><p>QRIS Pasar Besar Blok B sudah dinetralisir.</p><div class="meta">Satgas Siber Kalteng · 28 mnt lalu</div></div></div>
+        </div>
+      </section>
+
+      <!-- SCREEN: CEK QRIS -->
+      <section class="screen" data-screen="cek-qris">
+        <div class="screen-head">
+          <div><h2 class="h-lg">Cek QRIS</h2><p class="sub">Verifikasi payload QRIS forensik</p></div>
+          <div class="toggle" id="status-toggle" style="display:none;"></div>
+        </div>
+
+        <div class="grid-2">
+          <div class="space-y">
+            <div class="banner">
+              <div class="flex"><span class="material-symbols-outlined blue">security</span><div><div class="small">MODUL PROTEKSI</div><div class="bold">Cek QRIS (Prevent)</div></div></div>
+              <span class="badge badge-green"><span class="dot-green"></span> AI ON</span>
+            </div>
+
+            <div class="scanner" id="scanner-container">
+              <video id="camera-feed" autoplay playsinline muted></video>
+              <div class="scanner-top">
+                <span class="chip"><span class="material-symbols-outlined">videocam</span> Kamera Aktif</span>
+                <span class="chip success"><span class="live-dot"></span> SENSOR AKTIF</span>
+              </div>
+              <div class="scan-frame">
+                <div class="corner tl"></div><div class="corner tr"></div>
+                <div class="corner bl"></div><div class="corner br"></div>
+                <div class="target" id="scan-target-box">
+                  <button id="btn-simulate" onclick="simulateScan()" class="btn-primary" style="padding: 8px 16px; height: auto; font-size: 12px; border-radius: 8px; z-index: 50;">
+                    <span class="material-symbols-outlined" style="font-size:16px;">center_focus_strong</span> Simulasikan Scan
+                  </button>
+                </div>
+                <div class="laser" id="laser"></div>
+              </div>
+              <div class="scanner-bot">
+                <button id="torch-btn" class="chip"><span class="material-symbols-outlined" id="torch-icon">flash_on</span> Senter</button>
+                <span class="chip"><span class="material-symbols-outlined">center_focus_strong</span> Auto</span>
+                <button class="chip"><span class="material-symbols-outlined">flip_camera_ios</span> Kamera</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y" id="result-area">
+            <div class="flex-between">
+              <span class="tag-dark"><span class="live-dot"></span> Hasil Forensik</span>
+              <span class="badge badge-slate" id="scan-status-badge">Menunggu Scan...</span>
+            </div>
+
+            <!-- STATE: AMAN -->
+            <div data-state="safe" class="hidden" id="ui-safe">
+              <div class="result">
+                <div class="result-head">
+                  <div>
+                    <div class="small">NAMA MERCHANT</div>
+                    <div class="merchant-name" id="res-name">-</div>
+                    <div class="nmid" id="res-nmid">NMID: -</div>
+                  </div>
+                  <div class="result-badge">
+                    <span class="badge badge-green big"><span class="material-symbols-outlined">verified</span> AMAN</span>
+                  </div>
+                </div>
+                <div class="grid-2 small-gap">
+                  <div class="mini"><span class="small">ACQUIRER</span><div class="flex"><span class="material-symbols-outlined blue">account_balance</span><strong id="res-bank">-</strong></div></div>
+                  <div class="mini"><span class="small">SKOR RISIKO</span><div class="flex"><strong class="green" id="res-risk">-</strong><span class="small-muted">(Rendah)</span></div></div>
+                </div>
+                <div class="checks">
+                  <div class="check-label">4-LAPIS PEMERIKSAAN</div>
+                  <div class="check"><span class="check-icon">✓</span><span>Format EMVCo Valid</span><span class="check-status">LULUS</span></div>
+                  <div class="check"><span class="check-icon">✓</span><span>NMID Terdaftar ASPI</span><span class="check-status">LULUS</span></div>
+                  <div class="check"><span class="check-icon">✓</span><span>Payload Bebas Phishing</span><span class="check-status">BERSIH</span></div>
+                  <div class="check"><span class="check-icon">✓</span><span>Bukan Rekening Dilaporkan</span><span class="check-status">0 LAPORAN</span></div>
+                </div>
+                <div class="result-actions">
+                  <button id="btn-lanjut" class="btn-primary"><span class="material-symbols-outlined">lock_open</span><span>Lanjutkan Transaksi</span></button>
+                  <button class="btn-danger-soft" onclick="showScreen('safe-qris')"><span class="material-symbols-outlined">flag</span><span>Laporkan Jika Curiga</span></button>
+                </div>
+              </div>
+            </div>
+
+            <!-- STATE: BAHAYA -->
+            <div data-state="alert" class="hidden" id="ui-alert">
+              <div class="alert-hero">
+                <div class="flex"><div class="alert-icon"><span class="material-symbols-outlined">gpp_bad</span></div>
+                  <div><div class="small red-dark">TEMUAN KRITIS</div><h3 class="alert-h" id="alert-title">Indikasi Ketidaksesuaian</h3></div></div>
+                <p id="alert-desc">Payload QR tidak selaras dengan merchant terdaftar BI & ASPI.</p>
+                <div class="progress-wrap"><span id="alert-reason">Penyimpangan Data</span><div class="progress"><div class="progress-fill" style="width:87%"></div></div></div>
+              </div>
+              <div class="protocol mt">
+                <span class="material-symbols-outlined">security</span>
+                <div><strong>Protokol Satgas Kalteng</strong><p>Jangan lanjut ke rekening perorangan. Beritahu kasir untuk cek stiker QR.</p></div>
+              </div>
+              <div class="space-y mt">
+                <button id="btn-cancel" class="btn-danger"><span class="material-symbols-outlined">block</span>Batalkan & Kunci</button>
+                <button class="btn-outline" onclick="showScreen('safe-qris')"><span class="material-symbols-outlined">campaign</span>Laporkan ke SAFE QRIS</button>
+                <button class="btn-ghost" onclick="resetScan()"><span class="material-symbols-outlined">qr_code_scanner</span>Pindai Ulang</button>
+              </div>
+            </div>
+
+            <!-- Placeholder Awal -->
+            <div id="ui-empty" class="result flex-center" style="padding: 40px; flex-direction: column; text-align: center; color: #64748b;">
+              <span class="material-symbols-outlined" style="font-size: 48px; margin-bottom: 12px; opacity: 0.5;">document_scanner</span>
+              <h3>Menunggu Pemindaian</h3>
+              <p style="font-size: 12px; margin-top: 4px;">Posisikan QRIS atau klik tombol simulasi scan.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN: SAFE QRIS -->
+      <section class="screen" data-screen="safe-qris">
+        <div class="grid-2">
+          <div class="space-y">
+            <div class="hero">
+              <div class="hero-icon"><span class="material-symbols-outlined">shield_with_heart</span></div>
+              <div><div class="small">MODUL INTELIJEN · <span class="green">AKTIF 24/7</span></div><h2 class="h-lg mt">SAFE QRIS</h2><p>Pusat Laporan & Intelijen Komunitas. Setiap data memperkuat perlindungan pengguna.</p></div>
+            </div>
+            <div class="alert-banner"><span class="material-symbols-outlined">warning</span><div><strong>Peringatan Satgas</strong><p>Modus QRIS Tempel di Pasar Kahayan. Periksa nama pedagang sebelum PIN.</p></div></div>
+            <div class="form-card">
+              <div class="flex-between border-bot"><h2>Buat Laporan Forensik</h2><span class="badge badge-sky">256-BIT</span></div>
+              <form id="report-form" onsubmit="event.preventDefault(); submitReport();">
+                <div class="form-group">
+                  <label>1. Bukti Foto QRIS</label>
+                  <div class="upload">
+                    <input type="file" accept="image/*" id="file-input" onchange="handleFile(this)">
+                    <div id="upload-idle"><span class="material-symbols-outlined">add_a_photo</span><p>Tap untuk unggah</p></div>
+                    <div id="upload-preview" class="hidden"><img id="preview-img" alt="preview"><span id="file-name">bukti.jpg</span></div>
+                  </div>
+                </div>
+                <div class="form-group"><label>2. Nama Merchant</label><div class="input-wrap"><span class="material-symbols-outlined">storefront</span><input type="text" id="merchant-name" placeholder="TOKO BERKAH JAYA" required></div></div>
+                
+                <!-- JENIS LAPORAN (DROPDOWN) -->
+                <div class="form-group">
+                  <label>3. Jenis Laporan</label>
+                  <select id="report-type" class="form-select">
+                    <option value="Penipuan">Penipuan</option>
+                    <option value="Ketidaksesuaian NMID">Ketidaksesuaian NMID</option>
+                    <option value="Gangguan Jaringan">Gangguan Jaringan</option>
+                  </select>
+                </div>
+
+                <div class="form-group"><label>4. Lokasi</label><div class="gps-box"><span class="material-symbols-outlined blue">near_me</span><div><strong>Pasar Kahayan</strong><span>Palangka Raya (-2.2065, 113.9213)</span></div><button type="button" class="btn-mini" onclick="refreshGps(this)">Ubah</button></div></div>
+                <div class="form-group"><label>5. Kronologi</label><textarea id="chronology" rows="2" placeholder="Uraikan detail..."></textarea></div>
+                <div class="anon"><div><span class="material-symbols-outlined">visibility_off</span><div><strong>Lapor Anonim</strong><span>Identitas disamarkan</span></div></div><label class="switch"><input type="checkbox" checked><span></span></label></div>
+                <button type="submit" id="submit-btn" class="btn-primary w-full"><span class="material-symbols-outlined">security_update_good</span>Kirim Laporan</button>
+              </form>
+              <div id="success-box" class="success-box hidden"><span class="material-symbols-outlined">verified</span><div><strong>Laporan Diterima!</strong><span>ID: #ISEN-84920</span></div></div>
+            </div>
+          </div>
+          <div class="space-y">
+            <div class="flex-between"><h2><span class="material-symbols-outlined">feed</span> Intelijen Komunitas</h2><span class="small blue">Realtime <span class="live-dot"></span></span></div>
+            <div class="comm-card"><div class="comm-head"><div class="comm-icon red"><span class="material-symbols-outlined">block</span></div><div><strong>Kedai Kopi Sudirman (Palsu)</strong><span>12 menit lalu</span></div><span class="badge badge-red-solid">PENIPUAN</span></div><p>Stiker QRIS ganda mengatasnamakan rekening pribadi.</p><div class="comm-foot"><span class="green"><span class="material-symbols-outlined">shield</span>Diblokir BI</span><button class="link">Detail →</button></div></div>
+            <div class="comm-card"><div class="comm-head"><div class="comm-icon"><span class="material-symbols-outlined">radar</span></div><div><strong>SPBU Rajawali Km 4</strong><span>38 menit lalu</span></div><span class="badge badge-slate">INVESTIGASI</span></div><p>Pengalihan link QR dinamis ke halaman tiruan e-wallet.</p><div class="comm-foot"><span><span class="material-symbols-outlined">sync</span>Analisis</span><button class="link">Detail →</button></div></div>
+            <div class="comm-card"><div class="comm-head"><div class="comm-icon"><span class="material-symbols-outlined">history_toggle_off</span></div><div><strong>Apotek Sehat Murah</strong><span>1 jam lalu</span></div><span class="badge badge-slate">VERIFIKASI</span></div><p>Perbedaan NMID antara papan display dan rekening.</p><div class="comm-foot"><span><span class="material-symbols-outlined">group</span>3 Saksi</span><button class="link">Detail →</button></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN: ISEN MAP -->
+      <section class="screen" data-screen="isen-map">
+        <div class="grid-map">
+          <div class="space-y">
+            <div class="hud">
+              <div class="flex-between"><span class="tag-dark"><span class="material-symbols-outlined blue">radar</span> Satelit Telemetri</span><span class="badge badge-green"><span class="live-dot"></span> Realtime</span></div>
+              <div class="grid-2 small-gap mt"><div class="stat"><span>WILAYAH</span><strong>Palangka Raya</strong></div><div class="stat"><span>ANCAMAN</span><div class="flex"><span class="dot-amber"></span><strong class="amber">Rendah-Sedang</strong></div></div></div>
+              <div class="geo-strip"><span class="mono">-2.2136° S, 113.9108° E</span><span class="blue bold">RADIUS 15 KM</span></div>
+            </div>
+
+            <div class="map-view">
+              <svg class="map-svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="w" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9d6f3"/><stop offset="1" stop-color="#a4cbf0"/></linearGradient><linearGradient id="p" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#cbead6"/><stop offset="1" stop-color="#bfe4cb"/></linearGradient></defs>
+                <rect width="400" height="300" fill="#f1f3f4"/><polygon points="20,40 110,35 105,100 25,95" fill="#e8eaed"/><polygon points="125,35 240,30 235,90 120,95" fill="#ebeef1"/><polygon points="260,30 380,25 385,85 265,88" fill="#e8eaed"/><polygon points="30,120 110,115 100,190 20,185" fill="#ebedef"/><polygon points="130,115 205,112 195,185 120,188" fill="#e5e9ed"/><polygon points="230,112 300,110 295,180 225,182" fill="#ebeef1"/><polygon points="310,35 375,50 375,110 305,90" fill="url(#p)" stroke="#9fd3b2"/><path d="M -10,230 C 50,210 110,250 180,225 C 240,205 290,235 340,210 C 370,195 400,200 420,190 L 420,255 C 390,270 340,265 290,285 C 220,305 140,275 80,285 L -10,310 Z" fill="url(#w)"/><path d="M 20,40 L 390,30 M 15,100 L 385,90 M 10,195 L 390,185" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M 115,20 L 105,285 M 215,20 L 210,285" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M -10,75 L 410,65" stroke="#fed7aa" stroke-width="6" stroke-linecap="round"/><path d="M 220,-10 L 195,310" stroke="#fde047" stroke-width="6.5" stroke-linecap="round"/><path d="M 30,290 L 370,15" stroke="#fdba74" stroke-width="5" stroke-linecap="round"/><circle cx="208" cy="148" r="16" fill="#f8fafc" stroke="#fde047" stroke-width="4"/><circle cx="208" cy="148" r="9" fill="#cbead6" stroke="#52b788"/>
+              </svg>
+
+              <div class="map-label">Palangka Raya, Kalteng</div>
+
+              <!-- Map Markers (Update Teks) -->
+              <button class="map-marker" data-status="danger" style="top:26%;left:23%" onclick="pickMarker('pasar')">
+                <span class="marker-tag red">Penipuan (5 Korban)</span>
+                <span class="marker-pin red"><span class="material-symbols-outlined">priority_high</span></span>
+              </button>
+              <button class="map-marker" data-status="warning" style="top:48%;right:22%" onclick="pickMarker('bundaran')">
+                <span class="marker-tag amber">Gangguan Jaringan (5 Laporan)</span>
+                <span class="marker-pin amber"><span class="material-symbols-outlined">device_unknown</span></span>
+              </button>
+              <button class="map-marker" data-status="safe" style="top:52%;left:46%" onclick="pickMarker('flamboyan')">
+                <span class="marker-tag green">Kuliner Flamboyan</span>
+                <span class="marker-pin green"><span class="material-symbols-outlined">storefront</span></span>
+              </button>
+
+              <div class="user-loc" style="top:68%;left:34%"><span class="user-pulse"></span><span class="user-dot"></span></div>
+            </div>
+
+            <!-- Map Filters (Update Angka Waspada jadi 5) -->
+            <div class="filter-row">
+              <button class="chip-filter active" onclick="applyFilter(this,'all')"><span class="material-symbols-outlined">travel_explore</span>Semua <span class="count" id="count-all">8</span></button>
+              <button class="chip-filter" onclick="applyFilter(this,'danger')"><span class="dot-red"></span>Bahaya <span class="count" id="count-danger">5</span></button>
+              <button class="chip-filter" onclick="applyFilter(this,'warning')"><span class="dot-amber"></span>Waspada <span class="count" id="count-warning">5</span></button>
+              <button class="chip-filter" onclick="applyFilter(this,'safe')"><span class="dot-green"></span>Aman <span class="count" id="count-safe">1</span></button>
+            </div>
+          </div>
+
+          <div class="space-y">
+            <div class="inspector" id="inspector">
+              <div class="flex">
+                <div class="inspector-icon red" id="insp-icon"><span class="material-symbols-outlined" id="insp-symbol">warning</span></div>
+                <div><span class="badge badge-red-solid" id="insp-badge">Zona Bahaya</span><h3 id="insp-title">Pasar Besar</h3></div>
+              </div>
+              <div class="inspector-body">
+                <div class="flex-between"><span>Modus:</span><strong id="insp-modus">Stiker Ditumpuk</strong></div>
+                <div class="flex-between"><span>Laporan:</span><strong class="red-dark" id="insp-count">5 Korban</strong></div>
+                <div class="flex-between"><span>Status:</span><strong id="insp-status">Penyisiran</strong></div>
+                <div class="inspector-note" id="insp-note"><span class="material-symbols-outlined">info</span><span id="insp-note-text">Bahaya! Cek kesesuaian</span></div>
+              </div>
+            </div>
+            <button class="btn-primary w-full" onclick="showScreen('safe-qris')"><span class="material-symbols-outlined">add_location_alt</span>Laporkan Titik QRIS</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<div id="toast" class="toast"><span class="material-symbols-outlined" id="toast-icon">info</span><span id="toast-msg">Pesan</span></div>
+
+<nav class="bottom-nav">
+  <a class="bottom-link" data-nav="dashboard"><span class="material-symbols-outlined">grid_view</span>Dashboard</a>
+  <a class="bottom-link" data-nav="cek-qris"><span class="material-symbols-outlined">qr_code_scanner</span>Cek QRIS</a>
+  <a class="bottom-link" data-nav="safe-qris"><span class="material-symbols-outlined">shield_with_heart</span>Safe QRIS</a>
+  <a class="bottom-link" data-nav="isen-map"><span class="material-symbols-outlined">radar</span>ISEN Map</a>
+</nav>
+
+<script src="script.js"></script>
+</body>
+</html>
